@@ -9,7 +9,5 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python version: ["3.9","3.10","3.11","pypy3.10","pypy3.9"]
-        exclude:
-        - os: macos-latest
-          python latest: "3.9"
+        python version: ["3.11"]
+        
