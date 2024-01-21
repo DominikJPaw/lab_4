@@ -1,0 +1,33 @@
+name: check_synatx
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+    steps: 
+        - name: Upgrade pip
+          run: |
+            pip install pip --upgrade
+            pip install wheel
+        - name: Install flake8 and unitest         
+          run: |
+              install flake
+        - name: Check python version
+          run: |
+              python -v
+        - name: Analize Code with Fluke8
+          run: |
+            fluke8 code
+        - name: Analize app with unitest
+          run: |
+            unitest app
+    strategy:
+      matrix:
+        os: [ubuntu-latest,mcos-latest,windows-latest]
+        python version: ["3.9","3.10","3.11"]
+        exclude:
+          - os: ubuntu-latest
+            python version: "3.10"
+       
